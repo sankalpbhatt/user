@@ -1,14 +1,18 @@
-package com.pyl.user.model;
+package com.pyl.user.entity;
 
-public class UserResponse {
+import com.pyl.user.model.AddressRequest;
+import com.pyl.user.model.Password;
 
-    private String id;
+public class User extends BaseUpdatableEntity {
+
     private String firstName;
     private String lastName;
     private AddressRequest addressRequest;
     private String phone;
     private String email;
+    private Password password;
     private String username;
+    private Status status;
 
     public String getFirstName() {
         return firstName;
@@ -50,6 +54,14 @@ public class UserResponse {
         this.email = email;
     }
 
+    public Password getPassword() {
+        return password;
+    }
+
+    public void setPassword(Password password) {
+        this.password = password;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -58,11 +70,4 @@ public class UserResponse {
         this.username = username;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }
