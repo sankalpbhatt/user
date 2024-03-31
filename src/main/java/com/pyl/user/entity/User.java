@@ -1,18 +1,43 @@
 package com.pyl.user.entity;
 
-import com.pyl.user.model.AddressRequest;
 import com.pyl.user.model.Password;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import org.hibernate.annotations.Generated;
 
+@Entity(name = "user")
 public class User extends BaseUpdatableEntity {
 
+    @Id
+    @Generated
+    private String id;
     private String firstName;
     private String lastName;
-    private AddressRequest addressRequest;
+    @JoinColumn
+    private Address address;
+    private String countryCode;
     private String phone;
     private String email;
     private Password password;
     private String username;
     private Status status;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -30,12 +55,20 @@ public class User extends BaseUpdatableEntity {
         this.lastName = lastName;
     }
 
-    public AddressRequest getAddressRequest() {
-        return addressRequest;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setAddressRequest(AddressRequest addressRequest) {
-        this.addressRequest = addressRequest;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getPhone() {
